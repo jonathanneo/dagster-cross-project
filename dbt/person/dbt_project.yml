@@ -21,7 +21,7 @@ quoting:
   identifier: false
 
 models:
-  analytics:
+  person:
     +materialized: table
     +transient: true 
     raw:
