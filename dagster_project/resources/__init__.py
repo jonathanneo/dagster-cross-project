@@ -1,8 +1,20 @@
 import os
 from pathlib import Path
 from dagster_dbt import DbtCliResource
+from dagster_airbyte import AirbyteResource
 
-# DEV ENVIRONMENT 
+# airbyte resource
+
+airbyte_instance = AirbyteResource(
+    host="localhost",
+    port="8000",
+    # If using basic auth, include username and password:
+    username="airbyte",
+    password="password",
+)
+
+# dbt resource 
+
 CURRENT_DIRECTORY = Path(__file__).parent.resolve()
 
 PERSON_PROJECT_DIR = CURRENT_DIRECTORY / "../../dbt/person"

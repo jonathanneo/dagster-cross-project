@@ -11,10 +11,18 @@ from ..resources import (
     PRODUCTION_PROJECT_DIR,
     SALES_PROJECT_DIR,
     ANALYTICS_PROJECT_DIR,
+    airbyte_instance,
 )
 
 from dagster import AssetExecutionContext
 from dagster_dbt import DbtCliResource, dbt_assets, DagsterDbtTranslatorSettings
+from dagster_airbyte import load_assets_from_airbyte_instance
+from dagster import AssetKey
+
+airbyte_assets = load_assets_from_airbyte_instance(
+    airbyte=airbyte_instance, 
+    connection_to_asset_key_fn=lambda metadata, table_name: AssetKey([metadata.name, "raw", table_name]), 
+)
 
 example_person_manifest_path = Path(PERSON_PROJECT_DIR, "target", "manifest.json")
 if not example_person_manifest_path.exists(): 

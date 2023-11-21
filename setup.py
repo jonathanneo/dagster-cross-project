@@ -8,6 +8,7 @@ setup(
         "dagster-dbt==0.21.4",
         "dbt-core==1.6.0",
         "dbt-snowflake==1.6.0",
+        "dagster-airbyte==0.21.4"
     ],
     extras_require={
         "dev": [
