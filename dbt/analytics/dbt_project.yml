@@ -28,4 +28,3 @@ models:
       +schema: raw
     serving:
       +schema: serving
-
