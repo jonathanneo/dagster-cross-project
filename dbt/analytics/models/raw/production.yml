@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: production
+    database: production
+    schema: serving
+
+    quoting:
+      schema: false
+      identifier: false
+
+    tables:
+      - name: product
+        identifier: product
+
+      - name: productcategory
+        identifier: productcategory
+
+      - name: productsubcategory
+        identifier: productsubcategory

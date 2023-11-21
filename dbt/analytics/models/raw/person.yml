@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: person
+    database: person
+    schema: serving
+
+    quoting:
+      schema: false
+      identifier: false
+
+    tables:
+
+      - name: address
+        identifier: address
+      
+      - name: countryregion
+        identifier: countryregion
+      
+      - name: person
+        identifier: person
+      
+      - name: stateprovince
+        identifier: stateprovince

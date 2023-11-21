@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: sales
+    database: sales
+    schema: raw
+
+    quoting:
+      schema: false
+      identifier: false
+
+    tables:
+      - name: creditcard
+        identifier: creditcard
+
+      - name: customer
+        identifier: customer
+
+      - name: salesorderdetail
+        identifier: salesorderdetail
+
+      - name: salesorderheader
+        identifier: salesorderheader
+
+      - name: salesreason
+        identifier: salesreason
+
+      - name: store
+        identifier: store
