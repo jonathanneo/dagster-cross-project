@@ -1,7 +1,8 @@
 from typing import Any, Mapping, Optional
 
-from dagster import AssetKey
+from dagster import AssetKey, AutoMaterializePolicy
 from dagster_dbt import DagsterDbtTranslator
+
 
 class CustomDagsterDbtTranslator(DagsterDbtTranslator):
     @classmethod
@@ -29,3 +30,8 @@ class CustomDagsterDbtTranslator(DagsterDbtTranslator):
             components = [project_name, dbt_resource_props["schema"], resource_name]
         
         return AssetKey(components)
+    
+    def get_auto_materialize_policy(
+        self, dbt_resource_props: Mapping[str, Any]
+    ) -> Optional[AutoMaterializePolicy]:
+        return AutoMaterializePolicy.eager()

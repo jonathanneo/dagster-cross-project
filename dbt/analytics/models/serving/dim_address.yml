@@ -2,6 +2,11 @@ version: 2
 
 models:
   - name: dim_address
+    config:
+      meta:
+        dagster:
+          freshness_policy:
+            maximum_lag_minutes: 3
     columns:
       - name: address_key
         description: The surrogate key of the addressid
