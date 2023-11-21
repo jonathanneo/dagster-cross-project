@@ -24,8 +24,8 @@ if not example_person_manifest_path.exists():
     manifest=example_person_manifest_path,
     dagster_dbt_translator=CustomDagsterDbtTranslator(settings=DagsterDbtTranslatorSettings(enable_asset_checks=True)),
 )
-def dbt_example_person_assets(context: AssetExecutionContext, dbt_example_person: DbtCliResource):
-    yield from dbt_example_person.cli(["build"], context=context).stream()
+def dbt_person_assets(context: AssetExecutionContext, dbt_person: DbtCliResource):
+    yield from dbt_person.cli(["build"], context=context).stream()
 
 example_production_manifest_path = Path(PRODUCTION_PROJECT_DIR, "target", "manifest.json")
 if not example_production_manifest_path.exists(): 
@@ -35,8 +35,8 @@ if not example_production_manifest_path.exists():
     manifest=example_production_manifest_path,
     dagster_dbt_translator=CustomDagsterDbtTranslator(settings=DagsterDbtTranslatorSettings(enable_asset_checks=True)),
 )
-def dbt_example_production_assets(context: AssetExecutionContext, dbt_example_production: DbtCliResource):
-    yield from dbt_example_production.cli(["build"], context=context).stream()
+def dbt_production_assets(context: AssetExecutionContext, dbt_production: DbtCliResource):
+    yield from dbt_production.cli(["build"], context=context).stream()
 
 example_sales_manifest_path = Path(SALES_PROJECT_DIR, "target", "manifest.json")
 if not example_sales_manifest_path.exists(): 
@@ -46,8 +46,8 @@ if not example_sales_manifest_path.exists():
     manifest=example_sales_manifest_path,
     dagster_dbt_translator=CustomDagsterDbtTranslator(settings=DagsterDbtTranslatorSettings(enable_asset_checks=True)),
 )
-def dbt_example_sales_assets(context: AssetExecutionContext, dbt_example_sales: DbtCliResource):
-    yield from dbt_example_sales.cli(["build"], context=context).stream()
+def dbt_sales_assets(context: AssetExecutionContext, dbt_sales: DbtCliResource):
+    yield from dbt_sales.cli(["build"], context=context).stream()
 
 
 example_analytics_manifest_path = Path(ANALYTICS_PROJECT_DIR, "target", "manifest.json")
@@ -58,5 +58,5 @@ if not example_analytics_manifest_path.exists():
     manifest=example_analytics_manifest_path,
     dagster_dbt_translator=CustomDagsterDbtTranslator(settings=DagsterDbtTranslatorSettings(enable_asset_checks=True)),
 )
-def dbt_example_analytics_assets(context: AssetExecutionContext, dbt_example_analytics: DbtCliResource):
-    yield from dbt_example_analytics.cli(["build"], context=context).stream()
+def dbt_analytics_assets(context: AssetExecutionContext, dbt_analytics: DbtCliResource):
+    yield from dbt_analytics.cli(["build"], context=context).stream()
