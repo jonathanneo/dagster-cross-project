@@ -1,0 +1,200 @@
+definition_type: connection
+resource_name: s3_production → snowflake_production
+source_configuration_path: sources/s3_production/configuration.yaml
+destination_configuration_path: destinations/snowflake_production/configuration.yaml
+configuration:
+  sync_catalog:
+    streams:
+    - stream:
+        name: product
+        json_schema:
+          type: object
+          properties:
+            productline:
+              type:
+              - 'null'
+              - string
+            daystomanufacture:
+              type:
+              - 'null'
+              - string
+            color:
+              type:
+              - 'null'
+              - string
+            productid:
+              type:
+              - 'null'
+              - string
+            productsubcategoryid:
+              type:
+              - 'null'
+              - string
+            makeflag:
+              type:
+              - 'null'
+              - string
+            weight:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            finishedgoodsflag:
+              type:
+              - 'null'
+              - string
+            reorderpoint:
+              type:
+              - 'null'
+              - string
+            rowguid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_url:
+              type: string
+            weightunitmeasurecode:
+              type:
+              - 'null'
+              - string
+            listprice:
+              type:
+              - 'null'
+              - string
+            safetystocklevel:
+              type:
+              - 'null'
+              - string
+            productnumber:
+              type:
+              - 'null'
+              - string
+            name:
+              type:
+              - 'null'
+              - string
+            productmodelid:
+              type:
+              - 'null'
+              - string
+            sellstartdate:
+              type:
+              - 'null'
+              - string
+            class:
+              type:
+              - 'null'
+              - string
+            standardcost:
+              type:
+              - 'null'
+              - string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: product
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: productcategory
+        json_schema:
+          type: object
+          properties:
+            productcategoryid:
+              type:
+              - 'null'
+              - string
+            name:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            _ab_source_file_url:
+              type: string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: productcategory
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: productsubcategory
+        json_schema:
+          type: object
+          properties:
+            productcategoryid:
+              type:
+              - 'null'
+              - string
+            productsubcategoryid:
+              type:
+              - 'null'
+              - string
+            name:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            _ab_source_file_url:
+              type: string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: productsubcategory
+        selected: true
+        field_selection_enabled: false
+  status: active
+  schema_change: no_change
+  notify_schema_changes: false
+  non_breaking_changes_preference: ignore
+  namespace_definition: customformat
+  namespace_format: raw
+  prefix: ''
+  schedule_type: manual
+  geography: auto
+  notifySchemaChangesByEmail: false

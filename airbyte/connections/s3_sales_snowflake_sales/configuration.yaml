@@ -1,0 +1,404 @@
+definition_type: connection
+resource_name: s3_sales → snowflake_sales
+source_configuration_path: sources/s3_sales/configuration.yaml
+destination_configuration_path: destinations/snowflake_sales/configuration.yaml
+configuration:
+  sync_catalog:
+    streams:
+    - stream:
+        name: creditcard
+        json_schema:
+          type: object
+          properties:
+            expmonth:
+              type:
+              - 'null'
+              - string
+            expyear:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            cardtype:
+              type:
+              - 'null'
+              - string
+            cardnumber:
+              type:
+              - 'null'
+              - string
+            creditcardid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_url:
+              type: string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: creditcard
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: customer
+        json_schema:
+          type: object
+          properties:
+            customerid:
+              type:
+              - 'null'
+              - string
+            territoryid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            personid:
+              type:
+              - 'null'
+              - string
+            storeid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_url:
+              type: string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: customer
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: salesorderdetail
+        json_schema:
+          type: object
+          properties:
+            productid:
+              type:
+              - 'null'
+              - string
+            salesorderdetailid:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            salesorderid:
+              type:
+              - 'null'
+              - string
+            specialofferid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            orderqty:
+              type:
+              - 'null'
+              - string
+            unitprice:
+              type:
+              - 'null'
+              - string
+            rowguid:
+              type:
+              - 'null'
+              - string
+            unitpricediscount:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_url:
+              type: string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: salesorderdetail
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: salesorderheader
+        json_schema:
+          type: object
+          properties:
+            shiptoaddressid:
+              type:
+              - 'null'
+              - string
+            billtoaddressid:
+              type:
+              - 'null'
+              - string
+            onlineorderflag:
+              type:
+              - 'null'
+              - string
+            freight:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            orderdate:
+              type:
+              - 'null'
+              - string
+            creditcardid:
+              type:
+              - 'null'
+              - string
+            rowguid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_url:
+              type: string
+            creditcardapprovalcode:
+              type:
+              - 'null'
+              - string
+            shipdate:
+              type:
+              - 'null'
+              - string
+            shipmethodid:
+              type:
+              - 'null'
+              - string
+            accountnumber:
+              type:
+              - 'null'
+              - string
+            totaldue:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            salespersonid:
+              type:
+              - 'null'
+              - string
+            duedate:
+              type:
+              - 'null'
+              - string
+            subtotal:
+              type:
+              - 'null'
+              - string
+            customerid:
+              type:
+              - 'null'
+              - string
+            territoryid:
+              type:
+              - 'null'
+              - string
+            salesorderid:
+              type:
+              - 'null'
+              - string
+            revisionnumber:
+              type:
+              - 'null'
+              - string
+            currencyrateid:
+              type:
+              - 'null'
+              - string
+            taxamt:
+              type:
+              - 'null'
+              - string
+            status:
+              type:
+              - 'null'
+              - string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: salesorderheader
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: salesorderheadersalesreason
+        json_schema:
+          type: object
+          properties:
+            salesreasonid:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            salesorderid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            _ab_source_file_url:
+              type: string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: salesorderheadersalesreason
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: salesreason
+        json_schema:
+          type: object
+          properties:
+            salesreasonid:
+              type:
+              - 'null'
+              - string
+            name:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            _ab_source_file_url:
+              type: string
+            reasontype:
+              type:
+              - 'null'
+              - string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: salesreason
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: store
+        json_schema:
+          type: object
+          properties:
+            businessentityid:
+              type:
+              - 'null'
+              - string
+            salespersonid:
+              type:
+              - 'null'
+              - string
+            storename:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            _ab_source_file_url:
+              type: string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: store
+        selected: true
+        field_selection_enabled: false
+  status: active
+  schema_change: no_change
+  notify_schema_changes: false
+  non_breaking_changes_preference: ignore
+  namespace_definition: customformat
+  namespace_format: raw
+  prefix: ''
+  schedule_type: manual
+  geography: auto
+  notifySchemaChangesByEmail: false

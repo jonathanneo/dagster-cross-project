@@ -1,0 +1,241 @@
+definition_type: connection
+resource_name: s3_person → snowflake_person
+source_configuration_path: sources/s3_person/configuration.yaml
+destination_configuration_path: destinations/snowflake_person/configuration.yaml
+configuration:
+  sync_catalog:
+    streams:
+    - stream:
+        name: address
+        json_schema:
+          type: object
+          properties:
+            city:
+              type:
+              - 'null'
+              - string
+            spatiallocation:
+              type:
+              - 'null'
+              - string
+            postalcode:
+              type:
+              - 'null'
+              - string
+            addressline2:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            stateprovinceid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            addressline1:
+              type:
+              - 'null'
+              - string
+            rowguid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_url:
+              type: string
+            addressid:
+              type:
+              - 'null'
+              - string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: address
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: countryregion
+        json_schema:
+          type: object
+          properties:
+            name:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            countryregioncode:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_url:
+              type: string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: countryregion
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: person
+        json_schema:
+          type: object
+          properties:
+            firstname:
+              type:
+              - 'null'
+              - string
+            namestyle:
+              type:
+              - 'null'
+              - string
+            businessentityid:
+              type:
+              - 'null'
+              - string
+            emailpromotion:
+              type:
+              - 'null'
+              - string
+            middlename:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            title:
+              type:
+              - 'null'
+              - string
+            suffix:
+              type:
+              - 'null'
+              - string
+            persontype:
+              type:
+              - 'null'
+              - string
+            rowguid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_url:
+              type: string
+            lastname:
+              type:
+              - 'null'
+              - string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: person
+        selected: true
+        field_selection_enabled: false
+    - stream:
+        name: stateprovince
+        json_schema:
+          type: object
+          properties:
+            isonlystateprovinceflag:
+              type:
+              - 'null'
+              - string
+            name:
+              type:
+              - 'null'
+              - string
+            territoryid:
+              type:
+              - 'null'
+              - string
+            modifieddate:
+              type:
+              - 'null'
+              - string
+            stateprovinceid:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_last_modified:
+              type: string
+            stateprovincecode:
+              type:
+              - 'null'
+              - string
+            rowguid:
+              type:
+              - 'null'
+              - string
+            countryregioncode:
+              type:
+              - 'null'
+              - string
+            _ab_source_file_url:
+              type: string
+        supported_sync_modes:
+        - full_refresh
+        - incremental
+        source_defined_cursor: true
+        default_cursor_field:
+        - _ab_source_file_last_modified
+        source_defined_primary_key: []
+      config:
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field:
+        - _ab_source_file_last_modified
+        primary_key: []
+        alias_name: stateprovince
+        selected: true
+        field_selection_enabled: false
+  status: active
+  schema_change: no_change
+  notify_schema_changes: false
+  non_breaking_changes_preference: ignore
+  namespace_definition: customformat
+  namespace_format: raw
+  prefix: ''
+  schedule_type: manual
+  geography: auto
+  notifySchemaChangesByEmail: false

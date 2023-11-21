@@ -1,0 +1,152 @@
+resource_name: s3_person
+definition_type: source
+definition_id: 69589781-7828-43c5-9f63-8925b1c1ccc2
+definition_image: airbyte/source-s3
+definition_version: 4.1.2
+configuration:
+  bucket: dagster-demo-001
+  format:
+    encoding: utf8
+    filetype: csv
+    delimiter: ','
+    block_size: 10000
+    quote_char: '"'
+    double_quote: true
+    infer_datatypes: true
+    newlines_in_values: false
+  schema: '{}'
+  streams:
+  - name: address
+    globs:
+    - person/address.csv
+    format:
+      encoding: utf8
+      filetype: csv
+      delimiter: ','
+      quote_char: '"'
+      null_values: []
+      true_values:
+      - y
+      - 'yes'
+      - t
+      - 'true'
+      - 'on'
+      - '1'
+      double_quote: true
+      false_values:
+      - n
+      - 'no'
+      - f
+      - 'false'
+      - 'off'
+      - '0'
+      inference_type: None
+      header_definition:
+        header_definition_type: From CSV
+      strings_can_be_null: true
+      skip_rows_after_header: 0
+      skip_rows_before_header: 0
+    schemaless: false
+    validation_policy: Emit Record
+  - name: countryregion
+    globs:
+    - person/countryregion.csv
+    format:
+      encoding: utf8
+      filetype: csv
+      delimiter: ','
+      quote_char: '"'
+      null_values: []
+      true_values:
+      - y
+      - 'yes'
+      - t
+      - 'true'
+      - 'on'
+      - '1'
+      double_quote: true
+      false_values:
+      - n
+      - 'no'
+      - f
+      - 'false'
+      - 'off'
+      - '0'
+      inference_type: None
+      header_definition:
+        header_definition_type: From CSV
+      strings_can_be_null: true
+      skip_rows_after_header: 0
+      skip_rows_before_header: 0
+    schemaless: false
+    validation_policy: Emit Record
+    days_to_sync_if_history_is_full: 3
+  - name: person
+    globs:
+    - person/person.csv
+    format:
+      encoding: utf8
+      filetype: csv
+      delimiter: ','
+      quote_char: '"'
+      null_values: []
+      true_values:
+      - y
+      - 'yes'
+      - t
+      - 'true'
+      - 'on'
+      - '1'
+      double_quote: true
+      false_values:
+      - n
+      - 'no'
+      - f
+      - 'false'
+      - 'off'
+      - '0'
+      inference_type: None
+      header_definition:
+        header_definition_type: From CSV
+      strings_can_be_null: true
+      skip_rows_after_header: 0
+      skip_rows_before_header: 0
+    schemaless: false
+    validation_policy: Emit Record
+    days_to_sync_if_history_is_full: 3
+  - name: stateprovince
+    globs:
+    - person/stateprovince.csv
+    format:
+      encoding: utf8
+      filetype: csv
+      delimiter: ','
+      quote_char: '"'
+      null_values: []
+      true_values:
+      - y
+      - 'yes'
+      - t
+      - 'true'
+      - 'on'
+      - '1'
+      double_quote: true
+      false_values:
+      - n
+      - 'no'
+      - f
+      - 'false'
+      - 'off'
+      - '0'
+      inference_type: None
+      header_definition:
+        header_definition_type: From CSV
+      strings_can_be_null: true
+      skip_rows_after_header: 0
+      skip_rows_before_header: 0
+    schemaless: false
+    validation_policy: Emit Record
+    days_to_sync_if_history_is_full: 3
+  provider: {}
+  aws_access_key_id: '**********'
+  aws_secret_access_key: '**********'

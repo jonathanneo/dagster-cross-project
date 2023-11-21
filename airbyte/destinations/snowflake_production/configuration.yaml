@@ -1,0 +1,15 @@
+resource_name: snowflake_production
+definition_type: destination
+definition_id: 424892c4-daac-4491-b35d-c6688ba547ba
+definition_image: airbyte/destination-snowflake
+definition_version: 3.2.3
+configuration:
+  host: '**********'
+  role: accountadmin
+  schema: raw
+  database: production
+  username: jonathanneo
+  warehouse: query
+  credentials:
+    password: '**********'
+    auth_type: Username and Password
