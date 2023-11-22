@@ -22,6 +22,10 @@ quoting:
 
 models:
   analytics:
+    +meta:
+      dagster:
+        freshness_policy:
+          maximum_lag_minutes: 3
     +materialized: table
     +transient: true 
     raw:

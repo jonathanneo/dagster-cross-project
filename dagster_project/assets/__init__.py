@@ -17,11 +17,12 @@ from ..resources import (
 from dagster import AssetExecutionContext
 from dagster_dbt import DbtCliResource, dbt_assets, DagsterDbtTranslatorSettings
 from dagster_airbyte import load_assets_from_airbyte_instance
-from dagster import AssetKey
+from dagster import AssetKey, AutoMaterializePolicy
 
 airbyte_assets = load_assets_from_airbyte_instance(
     airbyte=airbyte_instance, 
     connection_to_asset_key_fn=lambda metadata, table_name: AssetKey([metadata.name, "raw", table_name]), 
+    connection_to_auto_materialize_policy_fn=lambda _: AutoMaterializePolicy.lazy(),
 )
 
 example_person_manifest_path = Path(PERSON_PROJECT_DIR, "target", "manifest.json")
